@@ -1,28 +1,45 @@
 # TodosAppNgrx
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
+Is the example for use Angular + Ngrx (Redux) for a [TodoMV* App](http://todomvc.com/)
 
-## Development server
+You can see all files about redux in [TodoMV* App](https://github.com/nicobytes/todo-app-ngrx/tree/master/src/redux)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Built with [@angular/cli](https://github.com/angular/angular-cli)
 
-## Code scaffolding
+# [DEMO ONLINE](https://todomvc-8d040.firebaseapp.com/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![cover](https://firebasestorage.googleapis.com/v0/b/todomvc-8d040.appspot.com/o/cover.png?alt=media&token=e8d4f906-4866-4b7a-a51a-f73867f985e3 "cover")
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+### Included
+- [@ngrx/store](https://github.com/ngrx/store) - RxJS powered state management for Angular apps, inspired by Redux
+- [@angular/router](https://github.com/angular/angular) - Angular Router
+- [@ngrx/store-devtools](https://github.com/ngrx/store-devtools) - Instrumentation for @ngrx/store enabling time-travel debugging
 
-## Running unit tests
+### Quick start
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+# clone the repo
+git clone https://github.com/nicobytes/todo-app-ngrx.git
 
-## Running end-to-end tests
+# Install the dependencies:
+npm install
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+# start the server
+ng serve
+```
 
-## Further help
+### Features
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- TodoMV* features ... [link](https://github.com/tastejs/todomvc/blob/master/app-spec.md#functionality)
+- Redux with ngrx
+- Persistence
+- Routing
+- coverage = 100% 
+
+![coverage](https://firebasestorage.googleapis.com/v0/b/todomvc-8d040.appspot.com/o/coverage.png?alt=media&token=e4e0ab21-51f3-4959-8969-381f8a081944 "coverage")
+
+# Todos
+
+- [] Add Angular Universal
+- [] PWA

@@ -1,0 +1,23 @@
+import { Action } from '@ngrx/store';
+{{#payloadType}}
+import { {{payloadType}} } from 'models/{{payloadType}}.model';
+{{/payloadType}}
+
+{{#actionsDestinations}}
+export const {{destination}}{{name}}  = '[{{destination}}]_{{name}}';
+{{/actionsDestinations}}
+
+{{#actionsDestinations}}
+export class {{destination}}{{name}}Action implements Action {
+  readonly type = {{destination}}{{name}};
+
+  constructor(
+    public payload: {{#payloadType}}{{payloadType}}{{/payloadType}}{{^payloadType}}any{{/payloadType}}
+  ) {}
+}
+{{/actionsDestinations}}
+
+export type {{name}}ActionType =
+{{#actionsDestinations}}
+| {{destination}}{{name}}Action
+{{/actionsDestinations}};

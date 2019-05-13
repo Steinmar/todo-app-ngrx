@@ -1,10 +1,10 @@
-import * as TodoActions from './todo.actions';
+import * as TodoActions from './export-todo.actions';
 import { TodosReducer } from './todo.reducer';
 
 describe('Redux: TodosReducer', () => {
 
   it('should return a new state with new todo: AddTodoAction', () => {
-    const action = new TodoActions.AddTodoAction('new todo');
+    const action = new TodoActions.AddTodoAction({ id: 1, text: 'new todo', completed: false });
     const oldState = [{ id: 1, text: 'todo', completed: false }];
     const newState = TodosReducer(oldState, action);
     expect(newState.length).toEqual(2);
@@ -21,7 +21,7 @@ describe('Redux: TodosReducer', () => {
   });
 
   it('should return a new state with new todos: ToggleAction', () => {
-    const action = new TodoActions.ToggleAction(1);
+    const action = new TodoActions.ToggleTodoAction( { id: 1, text: 'todo', completed: false });
     const oldState = [
       { id: 1, text: 'todo', completed: false },
       { id: 2, text: 'todo', completed: false }
@@ -33,7 +33,7 @@ describe('Redux: TodosReducer', () => {
   });
 
   it('should return a new state with new todos: DeleteTodoAction', () => {
-    const action = new TodoActions.DeleteTodoAction(1);
+    const action = new TodoActions.DeleteTodoAction({ id: 1, text: 'todo', completed: false });
     const oldState = [
       { id: 1, text: 'todo', completed: false },
       { id: 2, text: 'todo', completed: false }
@@ -44,7 +44,7 @@ describe('Redux: TodosReducer', () => {
   });
 
   it('should return a new state with new todos: UpdateAction', () => {
-    const action = new TodoActions.UpdateAction(1, 'update todo');
+    const action = new TodoActions.UpdateTodoAction({ id: 1, text: 'update todo', completed: false });
     const oldState = [
       { id: 1, text: 'todo', completed: false },
       { id: 2, text: 'todo', completed: false }

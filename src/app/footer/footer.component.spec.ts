@@ -5,8 +5,8 @@ import { StoreModule, Store } from '@ngrx/store';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { rootReducer, AppState } from './../../redux/app.reducer';
-import * as FilterActions from './../../redux/filter/filter.actions';
-import * as TodoActions from './../../redux/todo/todo.actions';
+import * as FilterActions from './../../redux/filter/export-filter.actions';
+import * as TodoActions from './../../redux/todo/export-todo.actions';
 
 import { FooterComponent } from './footer.component';
 

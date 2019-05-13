@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { AppState } from './../../redux/app.reducer';
-import * as FilterActions from './../../redux/filter/filter.actions';
-import * as TodoActions from './../../redux/todo/todo.actions';
-import { getStateCompleted } from './../../redux/todo/todo.selectors';
+import * as TodoActions from './../../redux/todo/export-todo.actions';
 
 @Component({
   selector: 'app-footer',

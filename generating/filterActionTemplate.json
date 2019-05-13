@@ -1,0 +1,6 @@
+{
+  "name": "Filter",
+  "actionsDestinations": [
+    {"destination": "Set"}
+  ]
+}

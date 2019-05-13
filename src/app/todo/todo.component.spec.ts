@@ -6,7 +6,7 @@ import { StoreModule, Store } from '@ngrx/store';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { rootReducer, AppState } from './../../redux/app.reducer';
-import * as TodoActions from './../../redux/todo/todo.actions';
+import * as TodoActions from './../../redux/todo/export-todo.actions';
 
 import { TodoComponent } from './todo.component';
 
@@ -88,7 +88,7 @@ describe('TodoComponent', () => {
 
     it('should dispatch an action when checkField change state', () => {
       component.checkField.setValue(true);
-      const action = new TodoActions.ToggleAction(component.todo.id);
+      const action = new TodoActions.ToggleTodoAction(component.todo);
       expect(store.dispatch).toHaveBeenCalledWith(action);
     });
 
@@ -100,7 +100,10 @@ describe('TodoComponent', () => {
       component.editing = true;
       component.textField.setValue('update todo', { emitEvent: false });
       component.updateText();
-      const action = new TodoActions.UpdateAction(component.todo.id, component.textField.value);
+      const action = new TodoActions.UpdateTodoAction({
+        ...component.todo,
+        text: component.textField.value
+      });
       expect(store.dispatch).toHaveBeenCalledWith(action);
     });
 
@@ -133,7 +136,7 @@ describe('TodoComponent', () => {
 
     it('should dispatch an action', () => {
       component.deleteTodo();
-      const action = new TodoActions.DeleteTodoAction(component.todo.id);
+      const action = new TodoActions.DeleteTodoAction(component.todo);
       expect(store.dispatch).toHaveBeenCalledWith(action);
     });
 

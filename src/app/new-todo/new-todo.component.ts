@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
 import { AppState } from './../../redux/app.reducer';
-import * as TodoActions from './../../redux/todo/todo.actions';
+import * as TodoActions from './../../redux/todo/export-todo.actions';
 
 @Component({
   selector: 'app-new-todo',
@@ -25,7 +25,11 @@ export class NewTodoComponent implements OnInit {
   saveTodo() {
     if (this.textField.valid) {
       const text: string = this.textField.value;
-      const action = new TodoActions.AddTodoAction(text.trim());
+      const action = new TodoActions.AddTodoAction({
+        id: null,
+        text: text.trim(),
+        completed: false
+      });
       this.store.dispatch(action);
       this.textField.setValue('', { emitEvent: false });
     }

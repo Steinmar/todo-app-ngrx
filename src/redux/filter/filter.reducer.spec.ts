@@ -1,4 +1,4 @@
-import * as FilterActions from './filter.actions';
+import * as FilterActions from './export-filter.actions';
 import { FilterReducer } from './filter.reducer';
 
 describe('Redux: FilterReducer', () => {

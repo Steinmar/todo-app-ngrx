@@ -8,7 +8,13 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "clear-generated-actions": "rm -r -f src/redux/generated/actions/ && mkdir src/redux/generated/actions/",
+    "generate-filter-action": "mustache generating/filterActionTemplate.json generating/actionTemplate.mustache > src/redux/generated/actions/filter.actions.ts",
+    "generate-todo-action": "mustache generating/todoActionTemplate.json generating/actionTemplate.mustache > src/redux/generated/actions/todo.actions.ts",
+    "generate-all-node": "npm run clear-generated-actions && node generating/generate.js",
+    "generate-all": "npm run clear-generated-actions && npm run generate-filter-action && npm run generate-todo-action"
+
   },
   "private": true,
   "dependencies": {
@@ -24,6 +30,7 @@
     "@ngrx/store": "^4.1.0",
     "@ngrx/store-devtools": "^4.0.0",
     "core-js": "^2.4.1",
+    "module-alias": "^2.2.0",
     "node-sass": "^4.12.0",
     "rxjs": "^5.4.2",
     "todomvc-app-css": "^2.1.0",
@@ -46,6 +53,7 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "mustache": "^3.0.1",
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.3.2",

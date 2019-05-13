@@ -1,16 +1,16 @@
-import { Todo } from './todo.model';
-import * as TodoActions from './todo.actions';
+import { Todo } from 'models/index';
+import * as TodoActions from './export-todo.actions';
 
 const initialState: Todo[] = [];
 
 export function TodosReducer(state: Todo[] = initialState, action: TodoActions.TodoActionType) {
   switch (action.type) {
-    case TodoActions.ADD_TODO: {
+    case TodoActions.AddTodo: {
       return [
         ...state,
         {
-          id: action.id,
-          text: action.text,
+          id: action.payload.id,
+          text: action.payload.text,
           completed: false
         }
       ];
@@ -20,7 +20,7 @@ export function TodosReducer(state: Todo[] = initialState, action: TodoActions.T
     }
     case TodoActions.TOGGLE_TODO: {
       return state.map(todo => {
-        if (action.id === todo.id) {
+        if (action.payload.id === todo.id) {
           return {
             ...todo,
             completed: !todo.completed
@@ -30,15 +30,15 @@ export function TodosReducer(state: Todo[] = initialState, action: TodoActions.T
         }
       });
     }
-    case TodoActions.DELETE_TODO: {
-      return state.filter(todo => action.id !== todo.id );
+    case TodoActions.DeleteTodo: {
+      return state.filter(todo => action.payload.id !== todo.id );
     }
-    case TodoActions.UPDATE_TODO: {
+    case TodoActions.UpdateTodo: {
       return state.map(todo => {
-        if (action.id === todo.id) {
+        if (action.payload.id === todo.id) {
           return {
             ...todo,
-            text: action.text
+            text: action.payload.text
           };
         }else {
           return todo;

@@ -6,7 +6,6 @@ import { StoreModule, Store } from '@ngrx/store';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { rootReducer, AppState } from './../../redux/app.reducer';
-import * as TodoActions from './../../redux/todo/todo.actions';
 
 import { NewTodoComponent } from './new-todo.component';
 
@@ -26,7 +25,7 @@ describe('NewTodoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ 
+      declarations: [
         NewTodoComponent,
         BlankCmp
       ],

@@ -1,0 +1,9 @@
+{
+  "name": "Todo",
+  "payloadType": "Todo",
+  "actionsDestinations": [
+    {"destination": "Add"},
+    {"destination": "Delete"},
+    {"destination": "Update"}
+  ]
+}

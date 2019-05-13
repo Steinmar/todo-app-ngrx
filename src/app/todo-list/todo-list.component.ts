@@ -4,9 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 
 import { AppState } from './../../redux/app.reducer';
-import { Todo } from './../../redux/todo/todo.model';
-import * as FilterActions from './../../redux/filter/filter.actions';
-import * as TodoActions from './../../redux/todo/todo.actions';
+import { Todo } from 'models/Todo.model';
+import * as FilterActions from './../../redux/filter/export-filter.actions';
+import * as TodoActions from './../../redux/todo/export-todo.actions';
 import { getVisibleTodos, getStateCompleted } from './../../redux/todo/todo.selectors';
 
 @Component({

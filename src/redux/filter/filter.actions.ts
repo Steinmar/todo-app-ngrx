@@ -1,11 +1,13 @@
 import { Action } from '@ngrx/store';
 
-export const SET_FILTER  = '[SET] filter';
+export const SetFilter  = '[SET] filter';
 
 export class SetFilterAction implements Action {
-  readonly type = SET_FILTER;
+  readonly type = SetFilter;
 
   constructor(
-    public filter: string
+    public payload: string
   ) {}
 }
+
+export type FilterActionType = SetFilterAction;

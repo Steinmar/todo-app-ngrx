@@ -8,8 +8,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
 import { rootReducer, AppState } from './../../redux/app.reducer';
-import * as TodoActions from './../../redux/todo/todo.actions';
-import * as FilterActions from './../../redux/filter/filter.actions';
+import * as TodoActions from './../../redux/todo/export-todo.actions';
+import * as FilterActions from './../../redux/filter/export-filter.actions';
 
 import { TodoListComponent } from './todo-list.component';
 import { TodoComponent } from './../todo/todo.component';

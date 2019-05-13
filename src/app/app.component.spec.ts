@@ -6,7 +6,7 @@ import { StoreModule, Store } from '@ngrx/store';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { rootReducer, AppState } from './../redux/app.reducer';
-import * as TodoActions from './../redux/todo/todo.actions';
+import * as TodoActions from './../redux/todo/export-todo.actions';
 
 import { TodoComponent } from './todo/todo.component';
 import { FooterComponent } from './footer/footer.component';

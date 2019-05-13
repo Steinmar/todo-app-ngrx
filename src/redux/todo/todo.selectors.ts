@@ -1,6 +1,6 @@
 import { createSelector } from '@ngrx/store';
 import { AppState } from './../app.reducer';
-import { Todo } from './todo.model';
+import { Todo } from 'models/Todo.model';
 
 export const getState  = (state: AppState) => state;
 export const getFilter = (state: AppState) => state.filter;

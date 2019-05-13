@@ -1,20 +1,20 @@
 import { Action } from '@ngrx/store';
 import { Todo } from 'models/Todo.model';
 
-import * as GeneratedToDoActions from '../generated/actions/todo.actions';
-
+export const AddTodo    = '[TODO] add';
+export const DeleteTodo = '[TODO] delete';
 export const TOGGLE_TODO = '[TODO] toggle';
+export const UpdateTodo = '[TODO] update';
 export const POPULATE_TODOS  = '[TODO] populate';
 export const CLEAR_COMPLETED_TODO = '[TODO] clear completed';
 export const COMPLETE_ALL_TODO = '[TODO] complete all';
 
-// custom updated add todo action
-export class AddTodoAction extends GeneratedToDoActions.AddTodoAction implements Action {
+export class AddTodoAction implements Action {
+  readonly type = AddTodo;
 
   constructor(
-    payload: Todo
+    public payload: Todo
   ) {
-    super(payload);
     this.payload.id = Math.random();
   }
 }
@@ -27,8 +27,24 @@ export class PopulateTodosAction implements Action {
   ) {}
 }
 
+export class DeleteTodoAction implements Action {
+  readonly type = DeleteTodo;
+
+  constructor(
+    public payload: Todo
+  ) {}
+}
+
 export class ToggleTodoAction implements Action {
   readonly type = TOGGLE_TODO;
+
+  constructor(
+    public payload: Todo
+  ) {}
+}
+
+export class UpdateTodoAction implements Action {
+  readonly type = UpdateTodo;
 
   constructor(
     public payload: Todo
@@ -43,11 +59,11 @@ export class CompletedAllAction implements Action {
   readonly type = COMPLETE_ALL_TODO;
 }
 
-export * from '../generated/actions/todo.actions';
 export type TodoActionType =
-| GeneratedToDoActions.TodoActionType
-| AddTodoAction
-| PopulateTodosAction
-| ToggleTodoAction
-| ClearCompletedAction
-| CompletedAllAction;
+AddTodoAction |
+PopulateTodosAction |
+ToggleTodoAction |
+DeleteTodoAction |
+UpdateTodoAction |
+ClearCompletedAction |
+CompletedAllAction;

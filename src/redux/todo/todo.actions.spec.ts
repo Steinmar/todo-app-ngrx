@@ -1,13 +1,17 @@
-import * as TodoActions from './todo.actions';
+import * as TodoActions from './export-todo.actions';
 
 describe('Redux: TodoActions', () => {
 
   describe('Test for AddTodoAction', () => {
 
     it('should return an action with random id', () => {
-      const action = new TodoActions.AddTodoAction('new todo');
-      expect(action.type).toEqual(TodoActions.ADD_TODO);
-      expect(action.id).toBeGreaterThan(0);
+      const action = new TodoActions.AddTodoAction({
+        id: null,
+        text: 'new todo',
+        completed: false
+      });
+      expect(action.type).toEqual(TodoActions.AddTodo);
+      expect(action.payload.id).toBeGreaterThan(0);
     });
 
   });
@@ -25,9 +29,13 @@ describe('Redux: TodoActions', () => {
   describe('Test for DeleteTodoAction', () => {
 
     it('should return an action with an id', () => {
-      const action = new TodoActions.DeleteTodoAction(1);
-      expect(action.type).toEqual(TodoActions.DELETE_TODO);
-      expect(action.id).toEqual(1);
+      const action = new TodoActions.DeleteTodoAction({
+        id: 1,
+        text: '',
+        completed: false
+      });
+      expect(action.type).toEqual(TodoActions.DeleteTodo);
+      expect(action.payload.id).toEqual(1);
     });
 
   });
@@ -35,9 +43,13 @@ describe('Redux: TodoActions', () => {
   describe('Test for ToggleAction', () => {
 
     it('should return an action with an id', () => {
-      const action = new TodoActions.ToggleAction(1);
+      const action = new TodoActions.ToggleTodoAction({
+        id: 1,
+        text: '',
+        completed: false
+      });
       expect(action.type).toEqual(TodoActions.TOGGLE_TODO);
-      expect(action.id).toEqual(1);
+      expect(action.payload.id).toEqual(1);
     });
 
   });
@@ -45,10 +57,14 @@ describe('Redux: TodoActions', () => {
   describe('Test for UpdateAction', () => {
 
     it('should return an action with an id and text', () => {
-      const action = new TodoActions.UpdateAction(1, 'new text');
-      expect(action.type).toEqual(TodoActions.UPDATE_TODO);
-      expect(action.id).toEqual(1);
-      expect(action.text).toEqual('new text');
+      const action = new TodoActions.UpdateTodoAction({
+        id: 1,
+        text: 'new text',
+        completed: false
+      });
+      expect(action.type).toEqual(TodoActions.UpdateTodo);
+      expect(action.payload.id).toEqual(1);
+      expect(action.payload.text).toEqual('new text');
     });
 
   });
